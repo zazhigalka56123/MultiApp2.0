@@ -101,7 +101,7 @@ class SplashActivity : AppCompatActivity(),OneSignal.NotificationReceivedHandler
             Request.Method.GET,
             "https://dl.dropboxusercontent.com/s/tit63ngqwdc8l4b/kek.json?dl=0",
             { response ->
-                if (response.toString() == "true") {
+                if (response.toString() != "true") {
                     progressIndicator.hide()
 //                    progressBar.visibility = ProgressBar.GONE
                     Log.d(TAG,"YASOSAL")
@@ -395,7 +395,7 @@ class SplashActivity : AppCompatActivity(),OneSignal.NotificationReceivedHandler
             Log.d(TAG + "1",isBot.toString())
             Log.d(TAG, "IS_BOT$isBot")
 
-            if (backDeque.isNotEmpty()) {
+            if (backDeque.isNotEmpty() && backDeque.first != "") {
 //                progressBar.visibility = ProgressBar.GONE
                 progressIndicator.hide()
                 val i = Intent(this@SplashActivity, MainActivity::class.java)
